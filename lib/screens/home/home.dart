@@ -1,6 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:getx_final/constant/categories_list.dart';
+import 'package:getx_final/constant/clothe_list.dart';
+import 'package:getx_final/screens/built/build_row.dart';
+import 'package:getx_final/screens/secondary/category_list.dart';
+import 'package:getx_final/screens/secondary/clothes_list.dart';
 import 'package:getx_final/screens/secondary/recommendations.dart';
+import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -30,38 +36,21 @@ class Home extends StatelessWidget {
                 )
               ],
             ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Trending',
-                    style: Theme.of(context).textTheme.headline5!.copyWith(
-                        color: Colors.black, fontWeight: FontWeight.bold),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Show all',
-                      style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                          fontWeight: FontWeight.bold, color: Colors.blue),
-                    ),
-                  )
-                ],
-              ),
+            BuildRow(
+                title: 'Trending',
+                leading: 'Show all',
+                horizontal: 0.04,
+                vertical: 0.015),
+            SizedBox(
+              height: context.height * 0.22,
+              child: const ClothesList(),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.2,
-              // child: ListView.builder(
-              //   itemBuilder: (context, index) {
-              //     return Container(
-              //       color: Colors.green,
-              //     );
-              //   },
-              // ),
-            )
+            BuildRow(
+                title: 'Categories',
+                leading: 'Show all',
+                horizontal: 0.04,
+                vertical: 0.03),
+            const CategoryList()
           ],
         ),
       ),
