@@ -2,14 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getx_final/constant/categories_list.dart';
 import 'package:getx_final/constant/clothe_list.dart';
+import 'package:getx_final/getx/getx.dart';
 import 'package:getx_final/screens/built/build_row.dart';
 import 'package:getx_final/screens/secondary/category_list.dart';
 import 'package:getx_final/screens/secondary/clothes_list.dart';
-import 'package:getx_final/screens/secondary/recommendations.dart';
+import 'package:getx_final/screens/secondary/recommendations/recommendations.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
+  final PageController _controller = PageController(initialPage: 0);
+
+  final DotChange _change = Get.put(DotChange());
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +22,27 @@ class Home extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Recommendation(),
+            Recommendation(firstController: _controller),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ...List.generate(
                   3,
-                  (index) => Container(
-                    margin: const EdgeInsets.all(5.0),
-                    height: MediaQuery.of(context).size.height * 0.02,
-                    width: MediaQuery.of(context).size.width * 0.02,
-                    decoration: const BoxDecoration(
-                      color: Colors.grey,
-                      shape: BoxShape.circle,
+                  (index) => Obx(
+                    () => Container(
+                      margin: const EdgeInsets.all(5.0),
+                      height: _change.dot.value == index
+                          ? context.height * 0.025
+                          : context.height * 0.016,
+                      width: _change.dot.value == index
+                          ? context.width * 0.025
+                          : context.width * 0.016,
+                      decoration: BoxDecoration(
+                        color: _change.dot.value == index
+                            ? Colors.blue[300]
+                            : Colors.black26,
+                        shape: BoxShape.circle,
+                      ),
                     ),
                   ),
                 )
@@ -43,7 +55,7 @@ class Home extends StatelessWidget {
                 vertical: 0.015),
             SizedBox(
               height: context.height * 0.22,
-              child: const ClothesList(),
+              child:  ClothesList(),
             ),
             BuildRow(
                 title: 'Categories',
