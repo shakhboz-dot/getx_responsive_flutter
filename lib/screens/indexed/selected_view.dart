@@ -13,7 +13,7 @@ class SelectedView extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: context.height * 0.6,
+          height: context.height * 0.55,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(context.width * 0.05),
@@ -47,7 +47,7 @@ class SelectedView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () => Get.back(),
                 icon: Icon(
                   Icons.arrow_back,
                   color: Colors.white,
@@ -66,7 +66,17 @@ class SelectedView extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: context.height * 0.56,
+          top: context.height * 0.034,
+          left: context.width * 0.92,
+          child: CircleAvatar(
+            backgroundColor: Colors.blue.shade400,
+            foregroundColor: Colors.white,
+            child: Text('3', style: TextStyle(fontSize: context.width * 0.025),),
+            radius: context.height * 0.009,
+          ),
+        ),
+        Positioned(
+          top: context.height * 0.5,
           left: 0,
           right: 0,
           child: Row(

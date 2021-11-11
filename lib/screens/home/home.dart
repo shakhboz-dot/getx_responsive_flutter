@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:getx_final/constant/categories_list.dart';
-import 'package:getx_final/constant/clothe_list.dart';
 import 'package:getx_final/getx/getx.dart';
 import 'package:getx_final/screens/built/build_row.dart';
-import 'package:getx_final/screens/secondary/category_list.dart';
-import 'package:getx_final/screens/secondary/clothes_list.dart';
-import 'package:getx_final/screens/secondary/recommendations/recommendations.dart';
+import 'package:getx_final/screens/home/secondary/category_list.dart';
+import 'package:getx_final/screens/home/secondary/clothes_list.dart';
+import 'package:getx_final/screens/home/secondary/recommendations/recommendations.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {

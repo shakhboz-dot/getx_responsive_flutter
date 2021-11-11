@@ -27,7 +27,7 @@ class ColorPage extends StatelessWidget {
         Row(
           children: [
             ...List.generate(
-              4,
+              colors.length,
               (index) => GestureDetector(
                   onTap: () {
                     choose.value = index;

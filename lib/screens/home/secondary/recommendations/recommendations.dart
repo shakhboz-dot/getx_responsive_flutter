@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
-import 'package:getx_final/screens/secondary/recommendations/first_pageview.dart';
-import 'package:getx_final/screens/secondary/recommendations/second_pageview.dart';
+import 'package:getx_final/screens/home/secondary/recommendations/first_pageview.dart';
+import 'package:getx_final/screens/home/secondary/recommendations/second_pageview.dart';
 
 class Recommendation extends StatelessWidget {
   PageController firstController;

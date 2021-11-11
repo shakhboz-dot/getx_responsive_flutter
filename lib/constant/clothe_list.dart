@@ -1,4 +1,4 @@
-const List<Map<String, dynamic>> clothes = [
+List<Map<String, dynamic>> clothes = [
   {
     "name": "Russ Shart",
     "image": [
@@ -8,6 +8,7 @@ const List<Map<String, dynamic>> clothes = [
     ],
     "newPrice": "\$19.99",
     "oldPrice": "\$21.99",
+    "count": 1,
   },
   {
     "name": "Comfort Jacket",
@@ -18,6 +19,7 @@ const List<Map<String, dynamic>> clothes = [
     ],
     "newPrice": "\$50.99",
     "oldPrice": "\$56.99",
+    "count": 1,
   },
   {
     "name": "Eywa Hoodie",
@@ -28,5 +30,19 @@ const List<Map<String, dynamic>> clothes = [
     ],
     "newPrice": "\$30.99",
     "oldPrice": "\$41.99",
+    "count": 1,
+  },
+  {
+    "name": "Eywa Hoodie",
+    "image": [
+      "assets/images/third.jpg",
+      "assets/images/third.jpg",
+      "assets/images/third.jpg",
+    ],
+    "newPrice": "\$30.99",
+    "oldPrice": "\$41.99",
+    "count": 1,
   },
 ];
+
+List<Map<String, dynamic>> added = [];

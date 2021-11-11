@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_final/constant/clothe_list.dart';
+import 'package:getx_final/screens/cart/cart_page.dart';
 import 'package:getx_final/screens/home/home.dart';
 import 'package:getx_final/screens/indexed/indexed_page.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: IndexedPage(indexed: clothes[2],),
+      home: CartPage()
     );
   }
 }

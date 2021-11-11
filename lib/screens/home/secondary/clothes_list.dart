@@ -83,7 +83,7 @@ class ClothesList extends StatelessWidget {
               ],
             ),
           ),
-          onTap: () => Get.to(IndexedPage(indexed: clothes[index])),
+          onTap: () => Get.to(IndexedPage(selected: clothes[index])),
         );
       },
       itemCount: clothes.length,
