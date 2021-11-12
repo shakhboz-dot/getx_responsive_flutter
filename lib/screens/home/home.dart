@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
                 vertical: 0.015),
             SizedBox(
               height: context.height * 0.22,
-              child:  ClothesList(),
+              child: const ClothesList(),
             ),
             BuildRow(
                 title: 'Categories',

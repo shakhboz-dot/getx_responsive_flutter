@@ -26,7 +26,7 @@ class SelectedText extends StatelessWidget {
         Row(
           children: [
             Text(
-              indexed['newPrice'] + '\t\t',
+              '\$' + indexed['newPrice'].toString() + '\t\t',
               style: TextStyle(
                 fontSize: context.width * 0.055,
                 color: Colors.black,
@@ -34,7 +34,7 @@ class SelectedText extends StatelessWidget {
               ),
             ),
             Text(
-              indexed['oldPrice'],
+              '\$' + indexed['oldPrice'].toString(),
               style: TextStyle(
                 fontSize: context.width * 0.035,
                 decoration: TextDecoration.lineThrough,

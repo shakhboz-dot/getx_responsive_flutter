@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
 import 'package:getx_final/constant/clothe_list.dart';
-import 'package:getx_final/getx/getx.dart';
 import 'package:getx_final/screens/indexed/indexed_page.dart';
 
 class ClothesList extends StatelessWidget {
-  ClothesList({Key? key}) : super(key: key);
+  const ClothesList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,7 @@ class ClothesList extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: context.width * 0.02),
                   child: RichText(
                     text: TextSpan(
-                      text: clothes[index]['newPrice'] + '\t\t',
+                      text: '\$' + clothes[index]['newPrice'].toString() + '\t\t',
                       style: TextStyle(
                         fontSize: context.width * 0.039,
                         color: Colors.black,
@@ -68,7 +67,7 @@ class ClothesList extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: clothes[index]['oldPrice'],
+                          text: '\$' + clothes[index]['oldPrice'].toString(),
                           style: TextStyle(
                             fontSize: context.width * 0.03,
                             decoration: TextDecoration.lineThrough,

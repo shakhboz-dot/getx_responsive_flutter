@@ -54,7 +54,7 @@ class Recommendation extends StatelessWidget {
         Positioned(
           left: context.width * 0.04,
           top: context.height * 0.35,
-          child: Container(
+          child: SizedBox(
             height: context.height,
             width: context.width,
             child: SecondPageView(textcontroller: _textcontroller),

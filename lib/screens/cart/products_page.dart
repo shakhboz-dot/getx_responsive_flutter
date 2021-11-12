@@ -4,16 +4,9 @@ import 'package:get/get_utils/src/extensions/context_extensions.dart';
 import 'package:getx_final/constant/clothe_list.dart';
 import 'package:getx_final/getx/getx.dart';
 
-class ProductsPage extends StatefulWidget {
-  ProductsPage({Key? key}) : super(key: key);
+class ProductsPage extends GetWidget<DotChange> {
+  final DotChange _change = Get.put(DotChange());
 
-  @override
-  State<ProductsPage> createState() => _ProductsPageState();
-}
-
-class _ProductsPageState extends State<ProductsPage> {
-
-  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,8 +24,6 @@ class _ProductsPageState extends State<ProductsPage> {
             margin: EdgeInsets.symmetric(vertical: context.height * 0.015),
             height: context.height * 0.14,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 image(context, index),
                 Expanded(
@@ -49,7 +40,7 @@ class _ProductsPageState extends State<ProductsPage> {
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
           );
@@ -92,14 +83,13 @@ class _ProductsPageState extends State<ProductsPage> {
       );
 
   Widget prices(BuildContext context, int index) {
-
     return Padding(
       padding: EdgeInsets.only(top: context.height * 0.03),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            clothes[index]['newPrice'],
+            '\$' + controller.clotheList![index].newPrice.toString(),
             style: TextStyle(
               fontSize: context.width * 0.04,
               fontWeight: FontWeight.w700,
@@ -109,9 +99,7 @@ class _ProductsPageState extends State<ProductsPage> {
             children: [
               InkWell(
                 onTap: () {
-                  setState(() {
-                    clothes[index]['count'] -= 1;
-                  });
+                  controller.onRemove(index);
                 },
                 child: Icon(
                   Icons.remove,
@@ -119,20 +107,20 @@ class _ProductsPageState extends State<ProductsPage> {
                 ),
               ),
               Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: context.width * 0.04),
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: context.width * 0.045,
-                    height: context.height * 0.02,
-                    color: Colors.black12.withOpacity(0.05),
-                    child: Text(clothes[index]['count'].toString()),
-                  )),
+                padding: EdgeInsets.symmetric(horizontal: context.width * 0.04),
+                child: Container(
+                  alignment: Alignment.center,
+                  width: context.width * 0.045,
+                  height: context.height * 0.02,
+                  color: Colors.black12.withOpacity(0.05),
+                  child: GetBuilder<DotChange>(builder: (val) {
+                    return Text(controller.clotheList![index].count.toString());
+                  }),
+                ),
+              ),
               InkWell(
                 onTap: () {
-                  setState(() {
-                    clothes[index]['count'] += 1;
-                  });
+                  controller.onAdd(index);
                 },
                 child: Icon(
                   Icons.add,
@@ -140,7 +128,7 @@ class _ProductsPageState extends State<ProductsPage> {
                 ),
               )
             ],
-          )
+          ),
         ],
       ),
     );
